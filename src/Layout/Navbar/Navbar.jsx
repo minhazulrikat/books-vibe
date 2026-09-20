@@ -1,12 +1,9 @@
-import { useContext } from "react";
 import { NavLink } from "react-router";
-import  BookContext  from "../../Context/BookContext";
+
 
 
 const Navbar = () => {
-    const {readBooks,setReadBooks} = useContext(BookContext);
-    setReadBooks('hello context')
-    console.log(readBooks,setReadBooks)
+
   const link = (
     <>
       <li>
