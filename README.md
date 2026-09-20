@@ -136,7 +136,7 @@ Read List   Wishlist
 ## 📦 Installation
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/minhazulrikat/books-vibe.git
 cd book-vibe
 npm install
 npm run dev
