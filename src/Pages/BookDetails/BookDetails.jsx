@@ -5,13 +5,15 @@ import { toast } from "react-toastify";
 
 const BookDetails = () => {
   const expectedBook = useLoaderData();
-  const { readBooks, setReadBooks , wishList, setWishList, } = useContext(BookContext);
+  const { readBooks, setReadBooks , wishList, setWishList,setDataToLocalStorage } = useContext(BookContext);
   const isExistedAtReadList = readBooks.some(
     (readBook) => readBook.bookId === Number(expectedBook.bookId),
   );
   const isExistedAtWishList = wishList.some(
     (wishBook) => wishBook.bookId === Number(expectedBook.bookId),
   );
+  const updatedReadBooks = [...readBooks,expectedBook];
+  const updatedWishList = [...wishList,expectedBook];
 
   const {
     bookName,
@@ -31,9 +33,12 @@ const BookDetails = () => {
       toast.error("This Book is already existed")
     }
     else{
-      setReadBooks([...readBooks,expectedBook]);
+      setReadBooks(updatedReadBooks);
+      setDataToLocalStorage("readBookList",updatedReadBooks);
       if(isExistedAtWishList){
-        setWishList(wishList.filter((wishListBook)=> wishListBook.bookId !== expectedBook.bookId));
+       const removeReadBookFromWishList = wishList.filter((wishListBook)=> wishListBook.bookId !== expectedBook.bookId);
+        setWishList(removeReadBookFromWishList);
+        setDataToLocalStorage("wishListData",removeReadBookFromWishList);
       }
       toast.success(`${bookName} is added to the Wish List`)
     }
@@ -47,7 +52,8 @@ const BookDetails = () => {
       return;
     }
     else{
-      setWishList([...wishList,expectedBook]);
+      setWishList(updatedWishList);
+       setDataToLocalStorage("wishListData",updatedWishList);
       toast.success(`${bookName} is added to the Wish List`)
     }
   };
