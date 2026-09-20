@@ -4,6 +4,7 @@ import RootLayout from "../Layout/RootLayout";
 import ListedBooks from "../Pages/ListedBooks/ListedBooks";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import BookDetails from "../Pages/BookDetails/BookDetails";
+import PagesToRead from "../Pages/PagesToRead/PagesToRead";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
           return expectedBook;
         },
       },
+      {
+        path:"pages-to-read",
+        Component: PagesToRead,
+      }
     ],
   },
 ]);

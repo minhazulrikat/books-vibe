@@ -1,14 +1,22 @@
 import { useState } from "react";
 import BookContext from "./BookContext";
 
-
-const BookProvider = ({children}) => {
+const BookProvider = ({ children }) => {
   const [readBooks, setReadBooks] = useState([]);
-  return (
-    <BookContext.Provider value={{readBooks,setReadBooks}}>
-{children}
-    </BookContext.Provider>
+  const [wishList, setWishList] = useState([]);
 
+  const handleSorting = (sortBy) => {
+     setReadBooks ((prevReadbooks)=> [...prevReadbooks].sort((a,b)=> b[sortBy] - a[sortBy]));
+    setWishList ((prevWishListBooks)=> [...prevWishListBooks].sort((a,b)=> b[sortBy] - a[sortBy]));
+    
+  };
+
+  return (
+    <BookContext.Provider
+      value={{ readBooks, setReadBooks, wishList, setWishList , handleSorting }}
+    >
+      {children}
+    </BookContext.Provider>
   );
 };
 
