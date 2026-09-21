@@ -7,15 +7,18 @@ const BookProvider = ({ children }) => {
   }
   const [readBooks, setReadBooks] = useState(()=>getReadListFromLocalStorage('readBookList'));
   const [wishList, setWishList] = useState(()=>getReadListFromLocalStorage('wishListData'));
+  const [sortAppliedBy,setSortAppliedBy] = useState('');
 
   const setDataToLocalStorage = (key,data)=>{
     localStorage.setItem(key,JSON.stringify(data));
   }
+   
   const handleSorting = (sortBy) => {
     setReadBooks ((prevReadbooks)=> [...prevReadbooks].sort((a,b)=> b[sortBy] - a[sortBy]));
     setWishList ((prevWishListBooks)=> [...prevWishListBooks].sort((a,b)=> b[sortBy] - a[sortBy]));
-    const sortApplied =  sortBy;
-    return sortApplied;
+
+    setSortAppliedBy(sortBy);
+    
   };
 
 
@@ -23,7 +26,7 @@ const BookProvider = ({ children }) => {
 
   return (
     <BookContext.Provider
-      value={{ readBooks, setReadBooks, wishList, setWishList , handleSorting,setDataToLocalStorage }}
+      value={{ readBooks, setReadBooks, wishList, setWishList , handleSorting,setDataToLocalStorage,sortAppliedBy}}
     >
       {children}
     </BookContext.Provider>

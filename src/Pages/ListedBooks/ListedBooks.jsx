@@ -5,7 +5,7 @@ import BookContext from "../../Context/BookContext";
 import ListedCard from "../../Components/ui/ListedCard";
 import EmptyList from "./EmptyList/EmptyList";
 const ListedBooks = () => {
-  const { readBooks, wishList, handleSorting } = useContext(BookContext);
+  const { readBooks, wishList, handleSorting,sortAppliedBy } = useContext(BookContext);
   return (
     <section className="container mx-auto px-4 py-15 space-y-6">
       <div className="py-6 bg-base-200 rounded-xl">
@@ -17,7 +17,7 @@ const ListedBooks = () => {
       <div className="flex justify-center items-center">
         <div className="dropdown dropdown-center">
           <div tabIndex={0} role="button" className="btn btn-success m-1">
-            Sort By ({})
+            Sort By ({sortAppliedBy.length===0?'None': sortAppliedBy})
           </div>
           <ul
             tabIndex={-1}

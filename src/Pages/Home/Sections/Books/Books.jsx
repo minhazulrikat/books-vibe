@@ -9,7 +9,7 @@ const Books = ({ booksData }) => {
         <h2 className="text-4xl font-semibold text-center mb-9">Books</h2>
         {/* section heading */}
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {booksData.map((book) => {
             return <Link key={book.bookId} to={`book-details/${book.bookId}`}><Card book={book}></Card></Link>;
           })}
