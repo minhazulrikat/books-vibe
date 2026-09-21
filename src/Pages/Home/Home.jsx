@@ -6,7 +6,7 @@ const Home = () => {
   const booksData = useLoaderData();
   
   return (
-    <section>
+    <section >
       <HeroBanner></HeroBanner>
       <Books booksData={booksData}></Books>
     </section>

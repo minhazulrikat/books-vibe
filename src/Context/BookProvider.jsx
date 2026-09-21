@@ -12,10 +12,12 @@ const BookProvider = ({ children }) => {
     localStorage.setItem(key,JSON.stringify(data));
   }
   const handleSorting = (sortBy) => {
-     setReadBooks ((prevReadbooks)=> [...prevReadbooks].sort((a,b)=> b[sortBy] - a[sortBy]));
+    setReadBooks ((prevReadbooks)=> [...prevReadbooks].sort((a,b)=> b[sortBy] - a[sortBy]));
     setWishList ((prevWishListBooks)=> [...prevWishListBooks].sort((a,b)=> b[sortBy] - a[sortBy]));
-    
+    const sortApplied =  sortBy;
+    return sortApplied;
   };
+
 
   
 

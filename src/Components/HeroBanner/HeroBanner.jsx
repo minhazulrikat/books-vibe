@@ -11,10 +11,10 @@ const HeroBanner = () => {
       className="max-w-full h-auto "
     />
     </div>
-    <div className='space-y-6'>
+    <div className='space-y-12'>
       <h1 className="text-5xl font-bold">Books to freshen up your bookshelf</h1>
       
-      <button className="btn btn-primary capitalize">View The List</button>
+      <button className="btn btn-success capitalize">View The List</button>
     </div>
   </div>
 </div>

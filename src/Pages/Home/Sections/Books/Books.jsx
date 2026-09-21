@@ -6,7 +6,7 @@ const Books = ({ booksData }) => {
   return (
     <section>
       <div className="container mx-auto px-4 md:my-15 my-10">
-        <h2 className="text-4xl font-semibold text-center">Books</h2>
+        <h2 className="text-4xl font-semibold text-center mb-9">Books</h2>
         {/* section heading */}
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">

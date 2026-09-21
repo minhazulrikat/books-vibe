@@ -5,15 +5,21 @@ import { toast } from "react-toastify";
 
 const BookDetails = () => {
   const expectedBook = useLoaderData();
-  const { readBooks, setReadBooks , wishList, setWishList,setDataToLocalStorage } = useContext(BookContext);
+  const {
+    readBooks,
+    setReadBooks,
+    wishList,
+    setWishList,
+    setDataToLocalStorage,
+  } = useContext(BookContext);
   const isExistedAtReadList = readBooks.some(
     (readBook) => readBook.bookId === Number(expectedBook.bookId),
   );
   const isExistedAtWishList = wishList.some(
     (wishBook) => wishBook.bookId === Number(expectedBook.bookId),
   );
-  const updatedReadBooks = [...readBooks,expectedBook];
-  const updatedWishList = [...wishList,expectedBook];
+  const updatedReadBooks = [...readBooks, expectedBook];
+  const updatedWishList = [...wishList, expectedBook];
 
   const {
     bookName,
@@ -29,44 +35,49 @@ const BookDetails = () => {
   } = expectedBook;
 
   const handleReadList = () => {
-    if(isExistedAtReadList){
-      toast.error("This Book is already existed")
-    }
-    else{
+    if (isExistedAtReadList) {
+      toast.error("This Book is already existed at Read List");
+    } else {
       setReadBooks(updatedReadBooks);
-      setDataToLocalStorage("readBookList",updatedReadBooks);
-      if(isExistedAtWishList){
-       const removeReadBookFromWishList = wishList.filter((wishListBook)=> wishListBook.bookId !== expectedBook.bookId);
+      setDataToLocalStorage("readBookList", updatedReadBooks);
+      if (isExistedAtWishList) {
+        const removeReadBookFromWishList = wishList.filter(
+          (wishListBook) => wishListBook.bookId !== expectedBook.bookId,
+        );
         setWishList(removeReadBookFromWishList);
-        setDataToLocalStorage("wishListData",removeReadBookFromWishList);
+        setDataToLocalStorage("wishListData", removeReadBookFromWishList);
       }
-      toast.success(`${bookName} is added to the Wish List`)
+      toast.success(`${bookName} is added to the Read List`);
     }
   };
   const handleWishList = () => {
-    if(isExistedAtWishList){
-      toast.error("This Book is already existed")
+    if (isExistedAtWishList) {
+      toast.error("This Book is already existed at Wish List");
       return;
-    }else if(isExistedAtReadList){
+    } else if (isExistedAtReadList) {
       toast.error("This Book is already at Read List");
       return;
-    }
-    else{
+    } else {
       setWishList(updatedWishList);
-       setDataToLocalStorage("wishListData",updatedWishList);
-      toast.success(`${bookName} is added to the Wish List`)
+      setDataToLocalStorage("wishListData", updatedWishList);
+      toast.success(`${bookName} is added to the Wish List`);
     }
   };
 
-
   return (
-    <div className="flex justify-between my-15 items-start container mx-auto px-4 gap-12">
-      <div className="flex-4 flex justify-center items-center bg-base-300 p-15 md:p-18 rounded-xl ">
-        <img src={image} alt={bookName} className=" w-auto object-contain h-100" />
+    <div className="flex flex-col md:flex-row justify-between my-15 items-start container mx-auto px-4 gap-12">
+      <div className="flex-4 flex justify-center items-center bg-base-300 p-15 md:p-18 rounded-xl w-full">
+        <img
+          src={image}
+          alt={bookName}
+          className=" sm:w-auto w-full object-contain h-auto sm:h-100"
+        />
       </div>
       <div className="flex-5">
         <div className="space-y-4">
-          <h2 className="text-5xl font-bold">{bookName}</h2>
+          <h2 className=" text-3xl sm:text-4xl md:text-5xl font-bold">
+            {bookName}
+          </h2>
           <p className="text-lg">By: {author}</p>
         </div>
         <div className="divider"></div>
@@ -113,11 +124,13 @@ const BookDetails = () => {
         </div>
         <div className="divider"></div>
         {/* divider */}
-        <div className="space-x-4">
+        <div className="gap-4 flex flex-col sm:flex-row">
           <button onClick={handleReadList} className="btn btn-outline">
             Add to ReadList
           </button>
-          <button onClick={handleWishList} className="btn btn-info">Add to WishList</button>
+          <button onClick={handleWishList} className="btn btn-info">
+            Add to WishList
+          </button>
         </div>
       </div>
     </div>

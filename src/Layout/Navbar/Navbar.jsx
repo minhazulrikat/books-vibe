@@ -12,7 +12,7 @@ const Navbar = () => {
           className={({ isActive }) => `
             ${
               isActive
-                ? " border border-green-600 bg-transparent text-green-600 shadow-none "
+                ? " border border-success bg-transparent text-success shadow-none "
                 : ""
             }  text-lg
               `}
@@ -27,7 +27,7 @@ const Navbar = () => {
           className={({ isActive }) => `
             ${
               isActive
-                ? " border border-green-600 bg-transparent text-green-600 shadow-none "
+                ? " border border-success bg-transparent text-success shadow-none "
                 : ""
             } text-lg
               `}
@@ -42,7 +42,7 @@ const Navbar = () => {
           className={({ isActive }) => `
             ${
               isActive
-                ? " border border-green-600 bg-transparent text-green-600 shadow-none "
+                ? " border border-success bg-transparent text-success shadow-none "
                 : ""
             }  text-lg
               `}
@@ -56,7 +56,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-base-100 shadow-sm">
-      <div className="navbar container mx-auto px-4">
+      <div className="navbar container mx-auto px-2 sm:px-4">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -83,14 +83,14 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-4"
             >{link}</ul>
           </div>
-          <a className="text-3xl font-bold">Book Vibe</a>
+          <a className="text-2xl md:text-3xl font-bold">Book Vibe</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-4">{link}</ul>
         </div>
         <div className="navbar-end space-x-2">
-          <a className="btn btn-success">Sign In</a>
-          <a className="btn btn-accent">Sign Up</a>
+          <a className="btn-sm sm:btn-md btn btn-success">Sign In</a>
+          <a className="btn-sm sm:btn-md btn btn-info">Sign Up</a>
         </div>
       </div>
     </nav>

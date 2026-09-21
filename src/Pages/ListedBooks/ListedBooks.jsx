@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import BookContext from "../../Context/BookContext";
-import Card from "../../Components/ui/Card";
+import ListedCard from "../../Components/ui/ListedCard";
 import EmptyList from "./EmptyList/EmptyList";
 const ListedBooks = () => {
   const { readBooks, wishList, handleSorting } = useContext(BookContext);
@@ -17,7 +17,7 @@ const ListedBooks = () => {
       <div className="flex justify-center items-center">
         <div className="dropdown dropdown-center">
           <div tabIndex={0} role="button" className="btn btn-success m-1">
-            Click
+            Sort By ({})
           </div>
           <ul
             tabIndex={-1}
@@ -45,23 +45,23 @@ const ListedBooks = () => {
         </TabList>
 
         <TabPanel>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-4">
             {readBooks.length === 0 ? (
-             <div className="col-span-full" > <EmptyList title={"Your Read List Is Empty"} paragraph={" You haven't added any books to your read list yet. Explore the collection and start building your reading list. "} /></div>
+             <div className="w-full" > <EmptyList title={"Your Read List Is Empty"} paragraph={" You haven't added any books to your read list yet. Explore the collection and start building your reading list. "} /></div>
             ) : (
               readBooks.map((book) => {
-                return <Card key={book.bookId} book={book}></Card>;
+                return <ListedCard key={book.bookId} book={book}></ListedCard>;
               })
             )}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-4">
             {wishList.length === 0 ? (
-             <div className="col-span-full" > <EmptyList title={'Your Wishlist Is Empty'} paragraph={" You haven't added any books to your wishlist yet. Discover books you love and save them for later. "} /></div>
+             <div className="w-full" > <EmptyList title={'Your Wishlist Is Empty'} paragraph={" You haven't added any books to your wishlist yet. Discover books you love and save them for later. "} /></div>
             ) : (
               wishList.map((book) => {
-                return <Card key={book.bookId} book={book}></Card>;
+                return <ListedCard key={book.bookId} book={book}></ListedCard>;
               })
             )}
           </div>
