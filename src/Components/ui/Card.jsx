@@ -4,7 +4,7 @@ const Card = ({ book }) => {
   const { bookName, image, rating, category, tags, author } = book;
 
   return (
-    <div className="card bg-base-100 shadow-sm cursor-pointer p-6 space-y-6">
+    <div className="card h-full bg-base-100 shadow-sm cursor-pointer p-6 space-y-6">
       <figure className="py-8 bg-base-200 rounded-xl">
         <img
           className="object-contain h-41.5 w-auto rounded-xl"

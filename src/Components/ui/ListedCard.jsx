@@ -21,6 +21,7 @@ const ListedCard = ({ book }) => {
         <img
           className="object-contain h-43 w-auto rounded-xl"
           src={image}
+          fetchPriority="high"
           alt={bookName}
         />
       </figure>
