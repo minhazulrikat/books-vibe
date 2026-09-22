@@ -16,7 +16,7 @@ const ListedCard = ({ book }) => {
     bookId,
   } = book;
   return (
-    <div className="card flex-row gap-6 bg-base-100 shadow-sm cursor-pointer p-6 ">
+    <div className="card flex-row gap-6 bg-base-100 shadow-sm p-6 ">
       <figure className="p-7 bg-base-200 rounded-xl">
         <img
           className="object-contain h-43 w-auto rounded-xl"

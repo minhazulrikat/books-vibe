@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router';
 import heroImage from '../../assets/hero-image.png';
 
 const HeroBanner = () => {
+  const navigate = useNavigate('');
   return (
    <div className="hero bg-base-300 min-h-[60vh] container mx-auto px-4 rounded-xl my-6 md:my-10 py-6 md:py-10">
   <div className="hero-content flex-col lg:flex-row-reverse">
@@ -14,7 +16,7 @@ const HeroBanner = () => {
     <div className='space-y-12'>
       <h1 className="text-5xl font-bold">Books to freshen up your bookshelf</h1>
       
-      <button className="btn btn-success capitalize">View The List</button>
+      <button onClick={()=>navigate('/listed-books')} className="btn btn-success capitalize">View The List</button>
     </div>
   </div>
 </div>
