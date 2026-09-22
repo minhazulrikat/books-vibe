@@ -9,6 +9,7 @@ const Card = ({ book }) => {
         <img
           className="object-contain h-41.5 w-auto rounded-xl"
           src={image}
+          fetchPriority="high"
           alt={bookName}
         />
       </figure>

@@ -10,6 +10,7 @@ const HeroBanner = () => {
         <img
       alt="book vibe hero component"
       src={heroImage}
+      fetchPriority='high'
       className="max-w-full h-auto "
     />
     </div>

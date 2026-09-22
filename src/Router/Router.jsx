@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router";
-import Home from "../Pages/Home/Home";
 import RootLayout from "../Layout/RootLayout";
-import ListedBooks from "../Pages/ListedBooks/ListedBooks";
 import ErrorPage from "../ErrorPage/ErrorPage";
-import BookDetails from "../Pages/BookDetails/BookDetails";
-import PagesToRead from "../Pages/PagesToRead/PagesToRead";
+import {
+  BookDetails,
+  Home,
+  ListedBooks,
+  PagesToRead,
+} from "../lazyLoadPages/LazyLoadPages";
 
 const router = createBrowserRouter([
   {
@@ -41,9 +43,9 @@ const router = createBrowserRouter([
         },
       },
       {
-        path:"pages-to-read",
+        path: "pages-to-read",
         Component: PagesToRead,
-      }
+      },
     ],
   },
 ]);
