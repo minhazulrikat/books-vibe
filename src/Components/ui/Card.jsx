@@ -15,18 +15,25 @@ const Card = ({ book }) => {
       </figure>
       <div className="card-body p-0 gap-4">
         <div className="flex gap-4 items-center">
-{
-  tags.map((tag,index) => <span key={index} className="badge badge-success badge-soft">{tag}</span> )
-}
+          {tags.map((tag, index) => (
+            <span key={index} className="badge badge-success badge-soft">
+              {tag}
+            </span>
+          ))}
         </div>
-       <div className="space-y-4">
-         <h2 className="card-title text-2xl">{bookName}</h2>
-        <p> By : { author}</p>
-       </div>
+        <div className="space-y-4">
+          <h2 className="card-title text-2xl">{bookName}</h2>
+          <p> By : {author}</p>
+        </div>
         <div className="h-px border-t border-dashed border-gray-300"></div>
         <div className="card-actions justify-end">
           <p>{category}</p>
-          <p className="text-right flex justify-end items-center gap-0.5">{rating} <span><FaRegStar/></span> </p>
+          <p className="text-right flex justify-end items-center gap-0.5">
+            {rating}{" "}
+            <span>
+              <FaRegStar />
+            </span>{" "}
+          </p>
         </div>
       </div>
     </div>

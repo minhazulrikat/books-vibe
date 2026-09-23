@@ -16,7 +16,7 @@ const ListedCard = ({ book }) => {
     bookId,
   } = book;
   return (
-    <div className="card flex-row gap-6 bg-base-100 shadow-sm p-6 ">
+    <div className="card flex-col md:flex-row gap-6 bg-base-100 shadow-sm p-6 ">
       <figure className="p-7 bg-base-200 rounded-xl">
         <img
           className="object-contain h-43 w-auto rounded-xl"
@@ -31,8 +31,8 @@ const ListedCard = ({ book }) => {
           <p> By : {author}</p>
         </div>
 
-        <div className="flex gap-4 items-center">
-          <span className="font-bold">Tag : </span>
+        <div className="flex gap-2 sm:gap-4 items-center flex-wrap">
+          <span className="font-bold ">Tag : </span>
           {tags.map((tag, index) => (
             <span key={index} className="badge badge-success badge-soft">
               {tag}
@@ -42,8 +42,8 @@ const ListedCard = ({ book }) => {
             Year of Publishing: {yearOfPublishing}
           </p>
         </div>
-        <div className="flex gap-4 items-center justify-start">
-          <div className="text-base-content/70 flex gap-1 items-center">
+        <div className="flex gap-4 sm:items-center flex-col sm:flex-row justify-start">
+          <div className="text-base-content/70 flex  gap-1 items-center">
             <span>
               {" "}
               <FaRegCircleUser />
